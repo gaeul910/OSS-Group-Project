@@ -32,7 +32,7 @@ int main()
             {
                 temp += input[i] - '0';
                 temp *= j;
-            } // Push 함수 추가 필요
+            } // Push 함수 추가 필요!!
         }
     }
 }
