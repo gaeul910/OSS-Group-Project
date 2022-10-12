@@ -3,7 +3,7 @@
 
 typedef struct Stack
 {
-    int data[256];
+    double data[256];
     int topindex;
 } Stack;
 
@@ -27,12 +27,14 @@ int main()
     printf(">>> ");
     char input[MAXDATA];
     gets(input);
-    int temp = 1;
+    double temp = 1;
 
     Stack *stack = init();
 
-    for (int i = 0; input[i] != 10; i++) // input[i]가 \0이 아닐 동안
+    for (int i = 0; input[i] != 0; i++) // input[i]가 \0이 아닐 동안
     {
+        if (input[i] == 32)
+            continue;
         if (input[i] >= '0' && input[i] <= '9')
         {
             for (int j = 1; input[i] != ' '; j *= 10)
