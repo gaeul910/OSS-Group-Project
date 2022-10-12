@@ -13,15 +13,6 @@ Stack *init()
     return stack;
 }
 
-int stackPush(int newdata, Stack *stack)
-{
-    if (stack->topindex < MAXDATA)
-    {
-        stack->data[++stack->topindex] = newdata;
-        return 0;
-    }
-}
-
 int main()
 {
     printf(">>> ");
@@ -35,14 +26,13 @@ int main()
     {
         if (input[i] == 32)
             continue;
-        if (input[i] >= '0' && input[i] <= '9')
+        if (input[i] >= '0' && input[i] <= '9') // 입력값이 피연산자일 경우
         {
             for (int j = 1; input[i] != ' '; j *= 10)
             {
                 temp += input[i] - '0';
                 temp *= j;
-            }
-            stackPush(temp, stack);
+            } // Push 함수 추가 필요
         }
     }
 }
