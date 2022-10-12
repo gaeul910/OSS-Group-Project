@@ -7,6 +7,19 @@ typedef struct Stack
     int topindex;
 } Stack;
 
+int push(double data, Stack *stack)
+{
+    if (stack->topindex <= MAXDATA - 1)
+    {
+        stack->data[++stack->topindex] = data;
+        return 0;
+    }
+    else
+    {
+        printf("Stack is Full!");
+        return -1;
+    }
+}
 Stack *init()
 {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
