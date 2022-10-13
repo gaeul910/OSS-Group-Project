@@ -20,6 +20,7 @@ int push(double data, Stack *stack)
         return -1;
     }
 }
+
 Stack *init()
 {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
@@ -45,7 +46,8 @@ int main()
             {
                 temp += input[i] - '0';
                 temp *= j;
-            } // Push 함수 추가 필요!!
+            }
+            push(temp, stack);
         }
     }
 }
