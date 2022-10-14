@@ -7,8 +7,10 @@ typedef struct Stack
     int topindex;
 } Stack;
 
-int check_operator(char input) {
-    switch (input){
+int check_operator(char input)
+{
+    switch (input)
+    {
     case '+':
         return 1;
     case '-':
@@ -61,29 +63,35 @@ int main()
                 temp *= j;
             }
             push(temp, stack);
-        } else if (int check = check_operator(input[i]) {
-            switch (check)
+        }
+
+        else
+        {
+            switch (check_operator(input[i]))
             {
             case 1:
-                num1 = pop; //pop은 int를 반환하도록 선언해주길 바람.
+                num1 = pop; // pop은 int를 반환하도록 선언해주길 바람.
                 num2 = pop;
-                push(num2+num1, stack);
-                continue;
+                push(num2 + num1, stack);
+                break;
             case 2:
                 num1 = pop;
                 num2 = pop;
                 push(num2 - num1, stack);
-                continue;
+                break;
             case 3:
                 num1 = pop;
                 num2 = pop;
                 push(num2 / num1, stack);
-                continue;
+                break;
             case 4:
                 num1 = pop;
                 num2 = pop;
                 push(num2 * num1, stack);
-                continue;
+                break;
+            default:
+                printf("Error: Unexpected value");
+                break;
             }
         }
     }
