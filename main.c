@@ -22,6 +22,19 @@ int check_operator(char input)
     }
 }
 
+int pop(Stack *stack)
+{
+    if (stack->topindex > -1)
+    {
+        return stack->data[stack->topindex--];
+        return 0;
+    }
+    else
+    {
+        printf("Stack is Empty");
+        return -1;
+    }
+}
 int push(double data, Stack *stack)
 {
     if (stack->topindex <= MAXDATA - 1)
