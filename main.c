@@ -22,12 +22,11 @@ int check_operator(char input)
     }
 }
 
-int pop(Stack *stack)
+double pop(Stack *stack)
 {
     if (stack->topindex > -1)
     {
         return stack->data[stack->topindex--];
-        return 0;
     }
     else
     {
@@ -61,6 +60,8 @@ int main()
     char input[MAXDATA];
     gets(input);
     double temp = 1;
+    int num1 = 0;
+    int num2 = 0;
 
     Stack *stack = init();
 
@@ -80,26 +81,20 @@ int main()
 
         else
         {
+            num1 = pop(stack);
+            num2 = pop(stack);
             switch (check_operator(input[i]))
             {
             case 1:
-                num1 = pop; // pop은 int를 반환하도록 선언해주길 바람.
-                num2 = pop;
                 push(num2 + num1, stack);
                 break;
             case 2:
-                num1 = pop;
-                num2 = pop;
                 push(num2 - num1, stack);
                 break;
             case 3:
-                num1 = pop;
-                num2 = pop;
                 push(num2 / num1, stack);
                 break;
             case 4:
-                num1 = pop;
-                num2 = pop;
                 push(num2 * num1, stack);
                 break;
             default:
