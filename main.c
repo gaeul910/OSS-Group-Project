@@ -103,4 +103,5 @@ int main()
             }
         }
     }
+    printf("%lf", pop(stack));
 }
