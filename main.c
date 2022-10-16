@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define MAXDATA 256
 
 typedef struct Stack
@@ -34,11 +35,11 @@ double pop(Stack *stack)
         return -1;
     }
 }
-int push(double data, Stack *stack)
+int push(double newdata, Stack *stack)
 {
     if (stack->topindex <= MAXDATA - 1)
     {
-        stack->data[++stack->topindex] = data;
+        stack->data[++stack->topindex] = newdata;
         return 0;
     }
     else
@@ -51,6 +52,8 @@ int push(double data, Stack *stack)
 Stack *init()
 {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
+    stack->topindex = -1;
+
     return stack;
 }
 
@@ -59,7 +62,7 @@ int main()
     printf(">>> ");
     char input[MAXDATA];
     gets(input);
-    double temp = 1;
+    double temp = 0;
     int num1 = 0;
     int num2 = 0;
 
@@ -71,10 +74,12 @@ int main()
             continue;
         if (input[i] >= '0' && input[i] <= '9') // 입력값이 피연산자일 경우
         {
-            for (int j = 1; input[i] != ' '; j *= 10)
+            temp = 0;
+            while (input[i] != 32)
             {
+                temp *= 10;
                 temp += input[i] - '0';
-                temp *= j;
+                i++;
             }
             push(temp, stack);
         }
@@ -103,5 +108,6 @@ int main()
             }
         }
     }
+
     printf("%lf", pop(stack));
 }
