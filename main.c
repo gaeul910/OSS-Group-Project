@@ -109,5 +109,7 @@ int main()
         }
     }
 
-    printf("%lf", pop(stack));
+    printf("%.2lf", pop(stack));
+
+    return 0;
 }
