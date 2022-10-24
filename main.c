@@ -110,6 +110,7 @@ int main()
     }
 
     printf("%.2lf", pop(stack));
+    //나
 
     return 0;
 }
